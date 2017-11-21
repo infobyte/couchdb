@@ -1,0 +1,15 @@
+erlang-xmerl:Depends=erlang-xmerl (>= 1:18.3-dfsg)
+erlang-tools:Depends=erlang-tools (>= 1:18.3-dfsg)
+erlang-syntax-tools:Depends=erlang-syntax-tools (>= 1:18.3-dfsg)
+erlang-ssl:Depends=erlang-ssl (>= 1:18.3-dfsg)
+erlang-public-key:Depends=erlang-public-key (>= 1:18.3-dfsg)
+erlang-os-mon:Depends=erlang-os-mon (>= 1:18.3-dfsg)
+erlang-inets:Depends=erlang-inets (>= 1:18.3-dfsg)
+erlang-eunit:Depends=erlang-eunit (>= 1:18.3-dfsg)
+erlang-crypto:Depends=erlang-crypto (>= 1:18.3-dfsg)
+erlang-base:Depends=erlang-base (>= 1:18.3-dfsg) | erlang-base-hipe (>= 1:18.3-dfsg)
+erlang-abi:Depends=erlang-abi-17.0
+erlang:Depends=${erlang-base:Depends}, ${erlang-crypto:Depends}, ${erlang-eunit:Depends}, ${erlang-inets:Depends}, ${erlang-os-mon:Depends}, ${erlang-public-key:Depends}, ${erlang-ssl:Depends}, ${erlang-syntax-tools:Depends}, ${erlang-tools:Depends}, ${erlang-xmerl:Depends}
+shlibs:Depends=libc6 (>= 2.14), libcurl3 (>= 7.16.2), libgcc1 (>= 1:3.0), libicu55 (>= 55.1-1~), libmozjs185-1.0 (>= 1.8.5-1.0.0+dfsg), libstdc++6 (>= 5.2)
+misc:Depends=
+misc:Pre-Depends=

@@ -1,0 +1,17 @@
+apache-couchdb (1.7.1) unstable; urgency=medium
+
+  * Add init.d script
+
+ -- Leonardo Lazzaro <leonardol@infobytesec.com>  Wed, 15 Nov 2017 15:37:44 +0000
+
+apache-couchdb (1.6.1-2) stable; urgency=medium
+
+  * Make couchdb start at boot
+
+ -- Cozy Debian Packaging <debian-packaging@cozycloud.cc>  Thu, 02 Jul 2015 19:51:38 +0000
+
+apache-couchdb (1.6.1-1) jessie; urgency=medium
+
+  * Debian cozy package
+
+ -- root <nicolas@cozycloud.cc>  Tue, 02 Jun 2015 10:21:50 +0000
