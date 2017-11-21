@@ -1,0 +1,5 @@
+debian/couchdb/usr/bin
+debian/couchdb/usr/lib
+debian/couchdb/usr/share/man
+debian/couchdb/etc/couchdb/default.ini
+debian/couchdb/etc/couchdb/default.d

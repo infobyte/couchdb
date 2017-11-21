@@ -1,0 +1,379 @@
+couchdb (1.7.1) kali-experimental; urgency=medium
+
+  * Security Fix
+
+ -- Leonardo Lazzaro <leonardol@infobytesec.com>  Wed, 15 Nov 2017 14:55:16 -0300
+
+couchdb (1.6.2~20151123-0kali5) kali-experimental; urgency=medium
+
+  * Add a patch to use runuser instead of su
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 07 Sep 2017 18:04:46 +0200
+
+couchdb (1.6.2~20151123-0kali4) kali-experimental; urgency=medium
+
+  * Change all depends on erlang-* to erlang17-* as couchdb doesn't work with
+    erlang version 20* which is the version in Kali
+
+ -- Sophie Brun <sophie@freexian.com>  Fri, 18 Aug 2017 10:14:14 +0200
+
+couchdb (1.6.2~20151123-0kali3) kali-dev; urgency=medium
+
+  * debian/rules: use provided files *.js to have the correct versions for
+    Futon, the administration interface
+
+ -- Sophie Brun <sophie@freexian.com>  Thu, 18 Aug 2016 15:28:35 +0200
+
+couchdb (1.6.2~20151123-0kali2) kali-dev; urgency=medium
+
+  * Add a patch to build with libc 2.20
+  * Add a patch to build without -Werror (we don't want that all warnings are
+    treated as errors)
+
+ -- Sophie Brun <sophie@freexian.com>  Mon, 07 Mar 2016 16:29:43 +0100
+
+couchdb (1.6.2~20151123-0kali1) kali-dev; urgency=medium
+
+  * Import new upstream snapshot that supports Erlang 7 (OTP 18).
+  * Build-Depends on dh-autoreconf and use dh --with autoreconf
+    (required because git snapshot lacks the required ./configure)
+  * Add a new patch to ensure that the THANKS file is created even
+    if we don't have any Git repository available.
+  * Add build-dependencies for documentation.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Mon, 23 Nov 2015 17:43:43 +0100
+
+couchdb (1.6.1-1kali1) kali-dev; urgency=medium
+
+  * Import new debian version
+
+ -- Sophie Brun <sophie@freexian.com>  Tue, 26 May 2015 09:51:40 +0200
+
+couchdb (1.6.1-1) unstable; urgency=low
+
+  * New upstream release (closes: #752420).
+  * Fixes CVE-2014-2668 .
+  * Add python-pygments to Build-Depends.
+  * Update Standards-Version to 3.9.6 .
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Thu, 21 May 2015 16:29:22 +0000
+
+couchdb (1.4.0-3) unstable; urgency=low
+
+  * Update erlang run-time dependencies (closes: #721322).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Fri, 30 Aug 2013 19:16:01 +0200
+
+couchdb (1.4.0-2) unstable; urgency=low
+
+  * 'dir', topmost node of the Info hierarchy may not be generated on all
+    architectures - don't fail its removal if it's not there.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Fri, 30 Aug 2013 01:03:38 +0200
+
+couchdb (1.4.0-1) unstable; urgency=low
+
+  * New upstream release (closes: #655674, #713748, #714263).
+  * Remove possible bashism (closes: #701550).
+  * Remove couchdb_sighup.patch as upstream switched to SIGTERM for stopping.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.org>  Wed, 28 Aug 2013 18:21:32 +0200
+
+couchdb (1.2.0-5) unstable; urgency=high
+
+  * Fix debian/patches/series for CVE-2012-5649 and CVE-2012-5650 fixes.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Fri, 18 Jan 2013 22:04:32 +0100
+
+couchdb (1.2.0-4) unstable; urgency=high
+
+  * Fix CVE-2012-5649 and CVE-2012-5650 with adding upstream fixes as patches:
+    improve_parsing_of_mochiweb_relative_paths.patch ,
+    improve_script_url_validation.patch and
+    include_a_comment_before_jsonp_output.patch (closes: #698439).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Fri, 18 Jan 2013 20:04:01 +0100
+
+couchdb (1.2.0-3) unstable; urgency=low
+
+  * Rework couchdb own run directory (updates: #681549).
+  * Use SIGTERM instead of SIGHUP for graceful shutdown (closes: #692295).
+  * Wait until complete stop of service.
+  * Use couchdb user for logrotate (closes: #652172).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Sun, 18 Nov 2012 12:24:24 +0100
+
+couchdb (1.2.0-2) unstable; urgency=low
+
+  * Make couchdb user own its run directory (closes: #681549).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Thu, 19 Jul 2012 20:13:25 +0200
+
+couchdb (1.2.0-1) unstable; urgency=low
+
+  * New major upstream release (closes: #672141).
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Tue, 10 Apr 2012 21:14:05 +0200
+
+couchdb (1.1.1-2) unstable; urgency=low
+
+  * Declare correct libmozjs-dev build dependency to make views working again,
+    thanks to Joan Touzet <joant@atypical.net> for clarification
+    (closes: #644545).
+  * Update Standards-Version to 3.9.3 , update debian/copyright to match it.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Tue, 20 Mar 2012 06:41:16 +0100
+
+couchdb (1.1.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Drop mawk dependency, not needed anymore (closes: 647173).
+  * Update Erlang dependency to match upstream recommendation
+    (closes: #632975).
+  * Enable experimental Mozilla SpiderMonkey JavaScript support, mozjs.patch
+    doesn't needed anymore.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Sun, 27 Nov 2011 09:06:57 +0100
+
+couchdb (1.1.0-2) unstable; urgency=low
+
+  [ Mike Hommey ]
+  * debian/patches/mozjs.patch: Backported changes to allow to build against
+    newer libmozjs (closes: #631031, #642218).
+
+  [ Laszlo Boszormenyi (GCS) <gcs@debian.hu> ]
+  * Restore missing changelog entries and fixes.
+  * Drop init.patch , couchdb can be stopped again (closes: #601339).
+  * Change to 3.0 (quilt) source format.
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Sat, 06 Aug 2011 09:33:58 +0200
+
+couchdb (1.1.0-1) unstable; urgency=low
+
+  * New upstream release (closes: #590334).
+  * Version jQuery dependency (closes: #582022, #614941).
+  * Empty dependency_libs in *.la (closes: #621202).
+  * Drop pid.patch , applied upstream and drop icu-config.patch not needed.
+  * Fix postrm , remove_file_collection is missing.
+  * Fix several lintian errors and warnings:
+    - add patch to implement force-reload initscript option
+    - use real erlang dependency, not just the virtual ABI one
+    - remove embedded jquery.form.js , depend on its package
+    - remove var/run/couchdb from the package, it'll be created on demand
+
+ -- Laszlo Boszormenyi (GCS) <gcs@debian.hu>  Thu, 14 Apr 2011 11:56:01 +0200
+
+couchdb (0.11.0-2.3) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * debian/rules: make sure /var/{lib,log}/couchdb have permission set to 750
+    (related to #600051).
+
+ -- Serafeim Zanikolas <sez@debian.org>  Mon, 01 Nov 2010 20:08:08 +0100
+
+couchdb (0.11.0-2.2) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Apply permission settings during package build (as opposed to during
+    package installation) (Closes: #600051). Setting high urgency for RC bug.
+
+ -- Serafeim Zanikolas <sez@debian.org>  Sat, 30 Oct 2010 13:03:20 +0200
+
+couchdb (0.11.0-2.1) unstable; urgency=high
+
+  * Non-maintainer upload by the Security Team.
+  * CVE-2010-2234: fix Cross-site request forgery vulnerability
+    (Closes: #570013)
+
+ -- Giuseppe Iuculano <iuculano@debian.org>  Sun, 26 Sep 2010 11:09:53 +0200
+
+couchdb (0.11.0-2) unstable; urgency=low
+
+  * Added patch from upstream which fixes compatibiluty with Erlang R14A
+    (closes: #587768, #587386).
+
+ -- Sergei Golovan <sgolovan@debian.org>  Mon, 05 Jul 2010 23:04:45 +0400
+
+couchdb (0.11.0-1) unstable; urgency=medium (security fixes)
+
+  * New upstream release, including security fix for CVE-2010-00009.
+    (closes: #576304, #577417)
+  * Removed debian/patches/icu-patch.patch, as it's no longer needed.
+
+ -- Sam Bisbee <sbisbee@computervip.com>  Fri, 16 Apr 2010 18:04:47 +0400
+
+couchdb (0.10.1-2) unstable; urgency=low
+
+  [ Elliot Murphy ]
+  * Updated debian/control, added Elliot to Uploaders
+  * Dropped $ENABLE_SERVER portion of debian/patches/init.patch
+
+  [ Sam Bisbee ]
+  * Updated debian/patches/init.patch, adding a grace period to the init
+    script's stop task to allow couchdb's child processes (ie., heart) a chance
+    to exit before deciding whether the task was successful or not. This adds a
+    dependency on procps (`ps` command).
+  * Removed debian/preinst, undoing killall preinst patch from 0.10.0-1 that is
+    no longer needed due to the grace period init patch in this release. This 
+    also removes the dependency on psmisc. (closes: #562901) 
+  * Updated debian/control, bumping Debian standards version to 3.8.4.
+  * Updated debian/control, adding mawk as a dependency. The majority of
+    systems will have it installed with the base system, but it's required and
+    not essential. (closes: #569965)
+
+ -- Sam Bisbee <sbisbee@computervip.com>  Tue, 09 Mar 2010 21:55:59 +0300
+
+couchdb (0.10.1-1) unstable; urgency=low
+
+  * New upstream release (closes: #550782). 
+  * Cleaning up nmu related lintian warnings. 
+
+ -- Sam Bisbee <sbisbee@computervip.com>  Wed, 23 Dec 2009 23:15:27 -0500
+
+couchdb (0.10.0-1) unstable; urgency=low
+
+  [ Elliot Murphy ]
+  * Updated debian/copyright, added src/etap*
+  * Updated debian/control, changed Maintainer to Erlang team address
+  * Updated debian/control, changed Vcs- links to new locations.
+
+  [ Sergei Golovan ]
+  * New upstream release (closes: #551212, #554080, #554593).
+  * Removed unnecessary build dependency on transitional erlang-nox package.
+  * Replaced subst variables in dependencies by ${erlang:Depends} which allows
+    to calculate dependencies automatically. This removes erlang-nox from
+    dependencies (closes: #532756).
+  * Bumped standards version to 3.8.3.
+  * It's normal if /etc/init.d script is left after package removal as a
+    config file (and the binary isn't available). Therefore made it return
+    success in case if /usr/bin/couchdb doesn't exist or isn't an executable.
+  * Change current directory to /var/run/couchdb in init script to prevent
+    error messages about access violation by code server if the current dir
+    isn't readable by the couchdb user.
+  * Put log files directly into /var/log/couchdb directory. There's no reason
+    to have different log subdirectories for different couchdb versions.
+
+  [ Noah Slater ]
+  * Updated debian/control, updated Build-Depends on debhelper to 7.2.11.
+
+  [ Sam Bisbee ]
+  * Updated debian/control, repointed Vcs links.
+  * Fix "replacing libreadline5-dev build dependency with libreadline-
+    dev" Updated debian/control, changed libreadline5-dev dependency to
+    libreadline-dev. (Closes: #553742)
+  * Updated debian/README.Debian, removed log directory partitioning info
+    per Sergei's related changes to put all logs in one directory.
+  * Updated debian/postrm, rmdir didn't like that its target directories
+    weren't non-empty (despite passed args), causing errors and failing to
+    remove directories. Also removed the version partitioning cases.
+  * Created debian/preinst, now we make sure that couchdb isn't running any
+    beam processes on upgrade. Upgrading from 0.9.0-2 was leaving old code in a
+    running beam process, so you were running 0.9.0 couchdb but had 0.10.0 code
+    installed until you killed the process. Adds a dependency on psmisc.
+
+ -- Sam Bisbee <sbisbee@computervip.com>  Sat, 21 Nov 2009 17:10:39 -0500
+
+couchdb (0.9.0-2) unstable; urgency=low
+
+  * Updated debian/dirs, removed /var/run/couchdb directory per policy.
+  * Updated debian/patches/pid.patch, create /var/run/couchdb dynamically.
+  * Updated debian/postrm, added VERSION variable.
+  * Updated debian/postrm, added missing removal of log directories.
+  * Updated debian/postrm, fixed missing function error.
+  * Updated debian/rules, added patch for debian/postrm to update VERSION.
+  * Updated debian/rules, fixed bug with configure patch.
+  * Updated debian/control, added build-dependency on erlang-dev >= 1:13.b
+    to make transition to Erlang R13B easier.
+
+ -- Noah Slater <nslater@tumbolia.org>  Mon, 11 May 2009 11:26:55 +0400
+
+couchdb (0.9.0-1) unstable; urgency=low
+
+  * New upstream release. Closes: #522051
+  * Added debian/patches/pid.patch, corrects daemon pidfile handling.
+  * Updated debian/control, added Build-Depends on libcurl4-openssl-dev.
+  * Updated debian/control, changed Homepage and Description.
+  * Updated debian/control, changed Standards-Version to 3.8.0.
+  * Updated debian/copyright, changed maintainer email address.
+  * Updated debian/postinst, changed owner of /etc/couchdb directory.
+  * Updated debian/postrm, changed so only empty data directories are removed.
+  * Updated debian/rules, improved uscan options for get-orig-source.
+
+ -- Noah Slater <nslater@tumbolia.org>  Tue, 14 Apr 2009 16:32:45 +0100
+
+couchdb (0.8.1-1) experimental; urgency=low
+
+  * New upstream release.
+  * Updated debian/control, added Depends on libjs-jquery.
+  * Updated debian/control, removed Depends on mime-support.
+  * Updated debian/rules, added standard uscan options for get-orig-source.
+  * Removed debian/patches/directory-version.patch, replaces manual sed invocation.
+
+ -- Noah Slater <nslater@tumbolia.org>  Mon, 18 Aug 2008 15:10:07 +0100
+
+couchdb (0.8.0-2) unstable; urgency=low
+
+  * Added debian/README.source, contains upstream source information.
+  * Updated debian/README.Debian, added note about python-couchdb.
+  * Updated debian/control, changed Standards-Version to 3.8.0.
+  * Updated debian/copyright, changed for latest proposed format.
+  * Updated debian/rules, changed binary-arch and binary-indep targets
+    to depend on the build target as a workaround for #486848.
+  * Updated debian/watch, updated version number.
+
+ -- Noah Slater <nslater@tumbolia.org>  Fri, 11 Jul 2008 11:29:17 +0100
+
+couchdb (0.8.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added debian/watch, upstream information for uscan.
+  * Updated debian/copyright, changed to use Apache Licence from common-licenses.
+  * Updated debian/rules, changed get-orig-source to work with uscan.
+
+ -- Noah Slater <nslater@tumbolia.org>  Wed, 25 Jun 2008 20:19:40 +0100
+
+couchdb (0.7.3~svn650270-2) unstable; urgency=low
+
+  * Updated debian/rules, added release partitioning to data directories.
+  * Updated debian/postrm, changed so that log files are not removed.
+
+ -- Noah Slater <nslater@tumbolia.org>  Sat, 24 May 2008 16:30:21 +0100
+
+couchdb (0.7.3~svn650270-1) experimental; urgency=low
+
+  * New upstream snapshot, database format change, no boot file, no
+    SpiderMonkey and all tests pass. Closes: #465592, #465722, #466424
+  * Updated debian/control, removed Debian revision from erlang-dev Build-Depends.
+  * Updated debian/control, removed Depends on libicu-dev. Closes: #466076
+  * Updated debian/copyright, changed for latest proposed format.
+
+ -- Noah Slater <nslater@tumbolia.org>  Thu, 01 May 2008 12:07:31 +0100
+
+couchdb (0.7.3~svn684-1) unstable; urgency=low
+
+  * New upstream snapshot.
+  * Updated debian/control, changed Standards-Version to 3.7.3.
+
+ -- Noah Slater <nslater@tumbolia.org>  Wed, 06 Feb 2008 17:03:38 +0000
+
+couchdb (0.7.2-2) experimental; urgency=low
+
+  * Updated debian/control, added Build-Depends on libicu-dev as an
+    alternative to libicu36-dev which is removed from unstable.
+
+ -- Sergei Golovan <sgolovan@debian.org>  Wed, 19 Dec 2007 17:54:47 +0300
+
+couchdb (0.7.2-1) experimental; urgency=low
+
+  * New upstream release.
+  * Updated debian/rules, changed to pass -fPIC to compiler. Closes: #451996
+  * Updated debian/rules, changed to force removal of unwanted files.
+  * Updated debian/rules, added a get-orig-source target.
+
+ -- Noah Slater <nslater@tumbolia.org>  Sat, 08 Dec 2007 01:21:01 +0300
+
+couchdb (0.7.0-1) experimental; urgency=low
+
+  * Initial release. Closes: #445880
+
+ -- Noah Slater <nslater@tumbolia.org>  Sat,  6 Oct 2007 19:44:36 +0100

@@ -1,0 +1,6 @@
+debian/couchdb/etc/couchdb/local.ini
+debian/couchdb/etc/couchdb/local.d
+debian/couchdb/etc/logrotate.d
+debian/couchdb/etc/init.d/couchdb
+debian/couchdb/var/lib
+debian/couchdb/var/log

@@ -1,0 +1,55 @@
+Source: couchdb
+Section: misc
+Priority: optional
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Standards-Version: 3.9.6
+Build-Depends: dpkg-dev (>= 1.16.1~),
+               debhelper (>= 9),
+               dh-autoreconf,
+               autoconf-archive,
+               pkg-config,
+               erlang17-crypto,
+               erlang17-dev,
+               erlang17-eunit,
+               erlang17-inets,
+               erlang17-xmerl,
+               python-pygments,
+               libcurl4-openssl-dev,
+               libicu-dev,
+               libmozjs185-dev,
+               libreadline-dev,
+# Optional build dependencies to generate docs
+               python-sphinx,
+               help2man,
+               texlive-latex-base,
+               texlive-latex-recommended,
+               texlive-latex-extra,
+               texlive-fonts-recommended,
+               texinfo,
+               gnupg,
+Homepage: http://couchdb.apache.org/
+
+Package: couchdb
+Architecture: any
+Depends: adduser,
+         ${erlang17-base:Depends} | ${erlang17-abi:Depends},
+         libjs-jquery (>= 1.4.2),
+         libjs-jquery-form (>= 2.36),
+         libjs-underscore (>= 0.5.5),
+         lsb-base,
+         procps,
+         ${erlang17:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: RESTful document oriented database
+ Apache CouchDB is a distributed, fault-tolerant and schema-free
+ document-oriented database accessible via a RESTful HTTP/JSON API. Among other
+ features, it provides robust, incremental replication with bi-directional
+ conflict detection and resolution, and is queryable and indexable using a
+ table-oriented view engine with JavaScript acting as the default view
+ definition language.
+ .
+ CouchDB is written in Erlang, but can be easily accessed from any environment
+ that provides means to make HTTP requests. There are a multitude of third-party
+ client libraries that make this even easier for a variety of programming
+ languages and environments.

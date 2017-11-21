@@ -1,0 +1,54 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+#DESTDIR=$(CURDIR)/debian/tmp/couchdb
+
+%:
+	dh $@ --with autoreconf
+
+override_dh_autoreconf:
+	if [ -x ./bootstrap ]; then \
+		dh_autoreconf -- ./bootstrap; \
+	fi
+
+override_dh_auto_clean:
+	dh_auto_clean
+#	rm -f $(CURDIR)/configure
+#	rm -f $(CURDIR)/debian/couchdb.init
+#	find $(CURDIR) -name \*.pyc -exec rm {} \;
+
+override_dh_auto_configure:
+	sed -i s/%package_author_name%/`lsb_release -si`/ etc/couchdb/default.ini.tpl.in
+	sed -i s/%version%/`lsb_release -sr`/ etc/couchdb/default.ini.tpl.in
+	dh_auto_configure -- --disable-launchd --disable-tests
+
+override_dh_auto_install:
+	dh_auto_install
+	chmod 0640 debian/couchdb/etc/couchdb/local.ini
+	chmod 0750 debian/couchdb/etc/couchdb/local.d
+	chmod 0750 debian/couchdb/var/lib/couchdb
+	chmod 0750 debian/couchdb/var/log/couchdb
+	rm -f debian/couchdb/usr/lib/couchdb/erlang/lib/couch-*/priv/lib/couch_erl_driver.la
+	sed -i "/dependency_libs/ s/'.*'/''/" `find debian/couchdb -name '*.la'`
+
+override_dh_auto_test:
+	echo NO TESTING
+#	dh_auto_test
+
+override_dh_gencontrol:
+	erlang-depends
+	dh_gencontrol
+
+get-packaged-orig-source:
+	uscan --noconf --download-current-version --destdir=. --rename
+
+override_dh_installinit:
+	ln -s etc/init/couchdb
+	dh_installinit --name=couchdb
+
+override_dh_systemd_enable:
+	dh_systemd_enable --name=couchdb
+#.PHONY: override_dh_auto_clean override_dh_auto_test
